@@ -8,11 +8,15 @@
 
 ## How it works ?
 
-Spera is (for now), just a small typed client for the code you want to schedule in the background, it's using QStash and runs locally when running `next dev`.
+Spera is (for now), just a small typed client for the code you want to schedule in the background, it uses QStash and runs locally when running `next dev`.
 
 All you need is to pass a functions object (key being the name of your event and the function to run as the value), e.g:
 
 ```ts
+import qStashProvider from '@spera/plugin-upstash';
+import { Spera } from '@spera/core';
+import * as accountCreated from './account.created';
+
 export const functions = {
   'app/account.created': accountCreated.handler,
 };
@@ -20,7 +24,7 @@ export const functions = {
 export const client = new Spera({
   url: `${getBaseUrl()}/api/queues`,
   functions,
-  qStashToken: process.env.QSTASH_TOKEN as string,
+  provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
 
 ```
@@ -36,7 +40,7 @@ yarn add @spera/core
 
 Notes:
 
-This first version depends on [QStash](https://upstash.com/qstash), please make sure you have the following environment variables setup for your project:
+This first version depends on [QStash](https://upstash.com/qstash) as a provider, please make sure you have the following environment variables setup for your project:
 
 - `QSTASH_URL`
 - `QSTASH_TOKEN`
@@ -62,6 +66,7 @@ See `apps/next/queues` as an example.
 ```ts
 // queues/index.ts
 import { Spera } from '@spera/core';
+import qStashProvider from '@spera/plugin-upstash';
 import * as accountCreated from './account.created';
 
 export const functions = {
@@ -77,7 +82,7 @@ export const getBaseUrl = () => {
 export const client = new Spera({
   url: `${getBaseUrl()}/api/queues`,
   functions,
-  qStashToken: process.env.QSTASH_TOKEN as string,
+  provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
 ```
 
@@ -148,8 +153,10 @@ export const config = {
 
 ## Project "roadmap"
 
-- Client API Design
-- Abstract QStash as a "Provider" plugin.
-- Cloudflare Queues as a "Provider" plugin.
-- Docs
-- Framework agnostic
+- [x] Abstract QStash as a "Provider" plugin.
+- [ ] Client API Design
+- [ ] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
+- [ ] Cloudflare Queues as a "Provider" plugin.
+- [ ] Docs
+- [ ] Cleanup code / repo
+- [ ] Framework agnostic

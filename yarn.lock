@@ -581,11 +581,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@spera/core@workspace:packages/core"
   dependencies:
-    "@types/node": 18.11.9
-    "@upstash/qstash": 0.3.0
+    "@types/node": 18.11.10
+    "@upstash/qstash": 0.3.1
     "@vitest/coverage-c8": 0.25.3
     "@vitest/ui": 0.25.3
     eslint: 8.28.0
+    next: 13.0.5
     prettier: 2.8.0
     typescript: 4.9.3
   languageName: unknown
@@ -597,16 +598,32 @@ __metadata:
   dependencies:
     "@babel/core": 7.20.5
     "@spera/core": "*"
-    "@types/node": 18.11.9
+    "@types/node": 18.11.10
     "@types/react": 18.0.25
     "@types/react-dom": 18.0.9
-    "@upstash/qstash": 0.3.0
+    "@upstash/qstash": 0.3.1
     eslint: 8.28.0
     eslint-config-custom: "*"
     next: 13.0.5
     react: 18.2.0
     react-dom: 18.2.0
     tsconfig: "*"
+    typescript: 4.9.3
+  languageName: unknown
+  linkType: soft
+
+"@spera/plugin-upstash@workspace:packages/plugin-qstash":
+  version: 0.0.0-use.local
+  resolution: "@spera/plugin-upstash@workspace:packages/plugin-qstash"
+  dependencies:
+    "@spera/core": "*"
+    "@types/node": 18.11.10
+    "@upstash/qstash": 0.3.1
+    "@vitest/coverage-c8": 0.25.3
+    "@vitest/ui": 0.25.3
+    eslint: 8.28.0
+    next: 13.0.5
+    prettier: 2.8.0
     typescript: 4.9.3
   languageName: unknown
   linkType: soft
@@ -657,10 +674,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.9":
-  version: 18.11.9
-  resolution: "@types/node@npm:18.11.9"
-  checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
+"@types/node@npm:*, @types/node@npm:18.11.10":
+  version: 18.11.10
+  resolution: "@types/node@npm:18.11.10"
+  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
   languageName: node
   linkType: hard
 
@@ -760,12 +777,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@upstash/qstash@npm:0.3.0":
-  version: 0.3.0
-  resolution: "@upstash/qstash@npm:0.3.0"
+"@upstash/qstash@npm:0.3.1":
+  version: 0.3.1
+  resolution: "@upstash/qstash@npm:0.3.1"
   dependencies:
     "@deno/shim-crypto": ~0.3.0
-  checksum: c6e525e4f7e9e2dad977f4b3fb479ca111be4fb32ee87e6cc1d5153789ed43ae600295c1ff7232b2e44f0a98c4820b6efbebab830809645b14f549d5ff6b37ed
+  checksum: 0f2fb5df6c3319a7257dd1a008a441725a95aedf8be651de3133aa854024391e94a9a6fdfc90fc58b11183d827ec0f2349c45c1e7ec8b29d28c62565bd6c96e8
   languageName: node
   linkType: hard
 
@@ -1387,7 +1404,7 @@ __metadata:
   resolution: "docs@workspace:apps/docs"
   dependencies:
     "@babel/core": 7.20.5
-    "@types/node": 18.11.9
+    "@types/node": 18.11.10
     "@types/react": 18.0.25
     "@types/react-dom": 18.0.9
     eslint: 8.28.0
@@ -1769,7 +1786,7 @@ __metadata:
     eslint: 8.28.0
     eslint-config-next: 13.0.5
     eslint-config-prettier: 8.5.0
-    eslint-config-turbo: 0.0.4
+    eslint-config-turbo: 0.0.7
     eslint-plugin-react: 7.31.11
     typescript: 4.9.3
   languageName: unknown
@@ -1809,14 +1826,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-turbo@npm:0.0.4":
-  version: 0.0.4
-  resolution: "eslint-config-turbo@npm:0.0.4"
+"eslint-config-turbo@npm:0.0.7":
+  version: 0.0.7
+  resolution: "eslint-config-turbo@npm:0.0.7"
   dependencies:
-    eslint-plugin-turbo: 0.0.4
+    eslint-plugin-turbo: 0.0.7
   peerDependencies:
-    eslint: ^7.23.0 || ^8.0.0
-  checksum: 5f89b557c0ebefe558315fdb6c2a2b800084ecb8c1cd170998c3b29f359885c5b40f48393a1657c36a868b3b9d89cd23503c3d927103cd9ca58e4d3aaccb6888
+    eslint: ">6.6.0"
+  checksum: 097c1a5fa669971cf0bd1198a00b64a6beb6917237c0d9599781c0a802536eb8f489a94d17841680bd2d02af00bd17608b909df596cb03034eb842a3dd6e2ef2
   languageName: node
   linkType: hard
 
@@ -1940,12 +1957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:0.0.4":
-  version: 0.0.4
-  resolution: "eslint-plugin-turbo@npm:0.0.4"
+"eslint-plugin-turbo@npm:0.0.7":
+  version: 0.0.7
+  resolution: "eslint-plugin-turbo@npm:0.0.7"
   peerDependencies:
-    eslint: ^7.23.0 || ^8.0.0
-  checksum: c2a27226ae46b6cc4a747a6d82eefc7efa5df14542dcf84806e72564e11d1d76971284e73b44ee36e5bf33eb13519fe2b5d71b783c1789c185da1519caf54cb5
+    eslint: ">6.6.0"
+  checksum: d6d99111c5b84148e906919bfec11bff2f683e73ebd59830bc23e08acad668c4a72e65b0159dfa476d0da31d88f28578231e8c5a837b8e0a3cf2e353ed6a2f55
   languageName: node
   linkType: hard
 
