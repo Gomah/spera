@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { client } from '../../queues';
+import { spera } from '../../queues';
 
 export const config = {
   api: {
@@ -15,7 +15,7 @@ export default async function handler(
 
   const body = JSON.parse(req.body);
 
-  await client.send('app/account.created', {
+  await spera.send('app/account.created', {
     id: body.id,
   });
 }

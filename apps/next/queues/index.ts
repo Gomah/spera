@@ -7,7 +7,7 @@ export const functions = {
   [accountCreated.name]: accountCreated.handler,
 };
 
-export const client = new Spera({
+export const spera = new Spera({
   url: `${getBaseUrl()}/api/queues`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),

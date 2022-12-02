@@ -1,0 +1,28 @@
+{
+  "name": "@spera/nextjs",
+  "version": "0.2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
+  "files": [
+    "dist/**",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "eslint --ext .ts src/"
+  },
+  "devDependencies": {
+    "@spera/core": "*",
+    "@types/node": "18.11.10",
+    "next": "13.0.5",
+    "typescript": "4.9.3"
+  },
+  "dependencies": {
+    "@upstash/qstash": "0.3.1"
+  }
+}

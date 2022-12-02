@@ -1,5 +1,5 @@
 {
-  "name": "@spera/next",
+  "name": "next",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@spera/core": "*",
+    "@spera/nextjs": "*",
     "@spera/plugin-upstash": "*",
-    "@upstash/qstash": "0.3.1",
     "next": "13.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"

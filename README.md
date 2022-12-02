@@ -33,9 +33,9 @@ I plan to support different providers, frameworks & improve the project – ther
 
 ## Quickstart (With Next.js)
 
-### Install dependencies
+### Install dependenciesr
 ```bash
-yarn add @spera/core
+yarn add @spera/core @spera/nextjs @spera/plugin-upstash
 ```
 
 Notes:
@@ -54,10 +54,10 @@ See `apps/next/queues` as an example.
 
 ```bash
 .
-├── pages/                      # The magic happens here
-│   ├── api/                    # Core API
-│   │   ├── queues.ts            # The queue API handler
-├── queues/                     # Your folder containing your functions
+├── pages/
+│   ├── api/                    # Next.js API folder
+│   │   ├── queues.ts           # The queue API handler
+├── queues/                     # Your folder containing your functions to run in the background
 │   ├── account.created.ts      #
 │   └── index.ts
 └── ...
@@ -65,9 +65,9 @@ See `apps/next/queues` as an example.
 
 ```ts
 // queues/index.ts
+import * as accountCreated from './account.created';
 import { Spera } from '@spera/core';
 import qStashProvider from '@spera/plugin-upstash';
-import * as accountCreated from './account.created';
 
 export const functions = {
   [accountCreated.name]: accountCreated.handler,
@@ -103,59 +103,32 @@ export async function handler(payload: AccountCreatedPayload) {
 
 ```ts
 // pages/api/queues.ts
-
-import { verifySignature } from '@upstash/qstash/nextjs';
+import { withSpera } from '@spera/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Readable } from 'stream';
-import { functions } from '../../queues';
-
-async function buffer(readable: Readable) {
-  const chunks = [];
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-  }
-  return Buffer.concat(chunks);
-}
-
-async function jobHandler(req: NextApiRequest, res: NextApiResponse) {
-  // Let's get the name & payload from the request body
-  const buf = await buffer(req);
-  const rawBody = buf.toString('utf8');
-  const body = JSON.parse(rawBody);
-
-  const { name, payload } = body as {
-    name: keyof typeof functions;
-    payload: any;
-  };
-
-  // Process handler
-  await functions[name](payload);
-
-  res.status(200).end();
-}
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (process.env.NODE_ENV === 'development') {
-    return await jobHandler(req, res);
-  }
-  return verifySignature(jobHandler(req, res) as any);
-}
+import { spera } from '../../queues';
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // This should be displayed after the background function is processed :)
+  console.log('Hey there!');
+  return res.status(200).end();
+}
+
+export default withSpera(handler, spera);
+
 ```
 
 ## Project "roadmap"
 
 - [x] Abstract QStash as a "Provider" plugin.
+- [x] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
 - [ ] Client API Design
-- [ ] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
+- [ ] Dynamic Next.js helpers (based on provider)
 - [ ] Cloudflare Queues as a "Provider" plugin.
 - [ ] Docs
 - [ ] Cleanup code / repo
