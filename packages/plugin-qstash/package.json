@@ -7,6 +7,25 @@
   "engines": {
     "node": "16.x"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./nextjs": {
+      "import": "./dist/nextjs.js",
+      "require": "./dist/nextjs.js",
+      "types": "./dist/nextjs.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "nextjs": [
+        "./dist/nextjs.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist/**",
     "package.json"

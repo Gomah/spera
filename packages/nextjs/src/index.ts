@@ -1,5 +1,4 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
-import { verifySignature } from '@upstash/qstash/nextjs';
 import type { Readable } from 'stream';
 import { Spera } from '@spera/core';
 
@@ -24,7 +23,7 @@ async function jobHandler(
 
   const { event, payload } = body as {
     event: keyof typeof functions;
-    payload: any;
+    payload: unknown;
   };
 
   // Process handler
@@ -33,18 +32,18 @@ async function jobHandler(
 
 export function withSpera(
   handler: NextApiHandler,
-  client: Spera<Record<string, Function>, any>
+  client: Spera<Record<string, Function>, any>,
+  verifySignature: (params: any) => NextApiHandler<any>
 ) {
   return async function nextApiHandler(
     req: NextApiRequest,
     res: NextApiResponse
   ) {
-    if (process.env.NODE_ENV === 'development') {
-      await jobHandler(req, res, client.functions);
-      return handler?.(req, res);
+    if (!client.isDev) {
+      verifySignature((await jobHandler(req, res, client.functions)) as any);
+      return handler(req, res);
     }
-
-    verifySignature(jobHandler(req, res, client.functions) as any);
-    return handler?.(req, res);
+    await jobHandler(req, res, client.functions);
+    return handler(req, res);
   };
 }

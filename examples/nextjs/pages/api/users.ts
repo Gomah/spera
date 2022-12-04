@@ -10,7 +10,7 @@ export const config = {
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
-): Promise<void> {
+) {
   // Send some stuff in the queue
 
   const body = JSON.parse(req.body);
@@ -18,4 +18,6 @@ export default async function handler(
   await spera.send('app/account.created', {
     id: body.id,
   });
+
+  return res.status(200).end();
 }

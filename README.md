@@ -4,13 +4,19 @@
 
 ![Preview](https://user-images.githubusercontent.com/2362138/204499245-c2d0451f-b34c-4ea1-bdb2-f0fa7f8121f5.gif)
 
-⚠️ Very early project – I'm currently using a similar version of this code in production but I don't think you should (:
+⚠️ Very early project – I'm currently using a similar version of this code in production but I don't think you should 🤷
 
 ## How it works ?
 
-Spera is (for now), just a small typed client for the code you want to schedule in the background, it uses QStash and runs locally when running `next dev`.
+Spera is (for now), just a small typed client for the code you want to schedule in the background, it uses QStash and runs locally when running `NODE_ENV` is set to development.
 
 All you need is to pass a functions object (key being the name of your event and the function to run as the value), e.g:
+
+```ts
+const functions = {
+  'app/account.created': accountCreated.Handler
+}
+```
 
 ```ts
 import qStashProvider from '@spera/plugin-upstash';
@@ -21,19 +27,19 @@ export const functions = {
   'app/account.created': accountCreated.handler,
 };
 
-export const client = new Spera({
+export const spera = new Spera({
   url: `${getBaseUrl()}/api/queues`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
-
 ```
 
 I plan to support different providers, frameworks & improve the project – there's a fair bit of boilerplate for now.
 
 ## Quickstart (With Next.js)
 
-### Install dependenciesr
+### Install dependencies
+
 ```bash
 yarn add @spera/core @spera/nextjs @spera/plugin-upstash
 ```
@@ -58,7 +64,7 @@ See `apps/next/queues` as an example.
 │   ├── api/                    # Next.js API folder
 │   │   ├── queues.ts           # The queue API handler
 ├── queues/                     # Your folder containing your functions to run in the background
-│   ├── account.created.ts      #
+│   ├── account.created.ts
 │   └── index.ts
 └── ...
 ```
@@ -104,6 +110,7 @@ export async function handler(payload: AccountCreatedPayload) {
 ```ts
 // pages/api/queues.ts
 import { withSpera } from '@spera/nextjs';
+import { verifySignature } from '@spera/plugin-upstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { spera } from '../../queues';
 
@@ -119,7 +126,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   return res.status(200).end();
 }
 
-export default withSpera(handler, spera);
+export default withSpera(handler, spera, verifySignature);
 
 ```
 
@@ -127,8 +134,8 @@ export default withSpera(handler, spera);
 
 - [x] Abstract QStash as a "Provider" plugin.
 - [x] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
+- [x] Dynamic Next.js helpers (based on provider)
 - [ ] Client API Design
-- [ ] Dynamic Next.js helpers (based on provider)
 - [ ] Cloudflare Queues as a "Provider" plugin.
 - [ ] Docs
 - [ ] Cleanup code / repo

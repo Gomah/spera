@@ -1,4 +1,5 @@
 import { withSpera } from '@spera/nextjs';
+import { verifySignature } from '@spera/plugin-upstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { spera } from '../../queues';
 
@@ -14,4 +15,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   return res.status(200).end();
 }
 
-export default withSpera(handler, spera);
+export default withSpera(handler, spera, verifySignature);
