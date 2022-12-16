@@ -85,7 +85,7 @@ export const getBaseUrl = () => {
   return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
 };
 
-export const client = new Spera({
+export const spera = new Spera({
   url: `${getBaseUrl()}/api/queues`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
@@ -135,6 +135,7 @@ export default withSpera(handler, spera, verifySignature);
 - [x] Abstract QStash as a "Provider" plugin.
 - [x] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
 - [x] Dynamic Next.js helpers (based on provider)
+- [ ] Add zod
 - [ ] Client API Design
 - [ ] Cloudflare Queues as a "Provider" plugin.
 - [ ] Docs
