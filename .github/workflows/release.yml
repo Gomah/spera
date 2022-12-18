@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Release
@@ -18,7 +20,8 @@ jobs:
 
       - name: Set up Node 16.x
         uses: actions/setup-node@v3
-        with: node-version:16.x
+        with:
+          node-version: 16.x
 
       - name: Install Dependencies
         run: yarn
