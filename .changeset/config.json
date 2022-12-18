@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["docs", "next", "eslint-config-custom", "tsconfig"]
+  "ignore": ["docs", "@examples/next", "eslint-config-custom", "tsconfig"]
 }

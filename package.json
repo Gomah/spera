@@ -12,7 +12,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "turbo run build lint && changeset version && changeset publish"
+    "release": "turbo run build --filter=@spera/core --filter=@spera/nextjs --filter=@spera/plugin-upstash lint && changeset version && changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "2.25.2"
