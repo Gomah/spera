@@ -26,8 +26,5 @@
     "next": "13.0.7",
     "tsup": "6.5.0",
     "typescript": "4.9.4"
-  },
-  "dependencies": {
-    "@upstash/qstash": "0.3.2"
   }
 }

@@ -15,7 +15,7 @@
     "release": "turbo run build --filter=@spera/core --filter=@spera/nextjs --filter=@spera/plugin-upstash lint && changeset version && changeset publish"
   },
   "dependencies": {
-    "@changesets/cli": "2.25.2"
+    "@changesets/cli": "2.26.0"
   },
   "devDependencies": {
     "eslint-config-custom": "*",

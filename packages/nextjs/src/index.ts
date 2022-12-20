@@ -12,7 +12,6 @@ async function buffer(readable: Readable) {
 
 async function jobHandler(
   req: NextApiRequest,
-  // @ts-ignore
   res: NextApiResponse,
   functions: Record<string, Function>
 ) {
@@ -35,15 +34,13 @@ export function withSpera(
   client: Spera<Record<string, Function>, any>,
   verifySignature: (params: any) => NextApiHandler<any>
 ) {
-  return async function nextApiHandler(
-    req: NextApiRequest,
-    res: NextApiResponse
-  ) {
-    if (!client.isDev) {
-      verifySignature((await jobHandler(req, res, client.functions)) as any);
-      return handler(req, res);
+  return async function nextApiHandler(req: NextApiRequest, res: NextApiResponse) {
+    if (client.isDev) {
+      await jobHandler(req, res, client.functions);
+    } else {
+      verifySignature(await jobHandler(req, res, client.functions));
     }
-    await jobHandler(req, res, client.functions);
+
     return handler(req, res);
   };
 }
