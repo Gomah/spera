@@ -1,5 +1,11 @@
 # @spera/plugin-upstash
 
+## 0.3.5
+
+### Patch Changes
+
+- bump @upstash/qstash to 0.3.6
+
 ## 0.3.4
 
 ### Patch Changes
