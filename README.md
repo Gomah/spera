@@ -28,7 +28,7 @@ export const functions = {
 };
 
 export const spera = new Spera({
-  url: `${getBaseUrl()}/api/queues`,
+  url: `${getBaseUrl()}/api/spera`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
@@ -56,21 +56,21 @@ This first version depends on [QStash](https://upstash.com/qstash) as a provider
 
 ### Define your "functions" / "jobs" you want to run in the background
 
-See `apps/next/queues` as an example.
+See `apps/next/.spera` as an example.
 
 ```bash
 .
-├── pages/
-│   ├── api/                    # Next.js API folder
-│   │   ├── queues.ts           # The queue API handler
-├── queues/                     # Your folder containing your functions to run in the background
+├── .spera/                     # Your folder containing your functions to run in the background
 │   ├── account.created.ts
 │   └── index.ts
+├── pages/
+│   ├── api/                    # Next.js API folder
+│   │   ├── spera.ts            # The Spera API handler
 └── ...
 ```
 
 ```ts
-// queues/index.ts
+// .spera/index.ts
 import * as accountCreated from './account.created';
 import { Spera } from '@spera/core';
 import qStashProvider from '@spera/plugin-upstash';
@@ -86,14 +86,14 @@ export const getBaseUrl = () => {
 };
 
 export const spera = new Spera({
-  url: `${getBaseUrl()}/api/queues`,
+  url: `${getBaseUrl()}/api/spera`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
 ```
 
 ```ts
-// queues/account.created.ts
+// .spera/account.created.ts
 export const name = 'app/account.created';
 
 export interface AccountCreatedPayload {
@@ -108,11 +108,11 @@ export async function handler(payload: AccountCreatedPayload) {
 ```
 
 ```ts
-// pages/api/queues.ts
+// pages/api/spera.ts
 import { withSpera } from '@spera/nextjs';
 import { verifySignature } from '@spera/plugin-upstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { spera } from '../../queues';
+import { spera } from '../../.spera';
 
 export const config = {
   api: {

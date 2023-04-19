@@ -1,7 +1,7 @@
 import { withSpera } from '@spera/nextjs';
 import { verifySignature } from '@spera/plugin-upstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { spera } from '../../queues';
+import { spera } from '../../.spera';
 
 export const config = {
   api: {

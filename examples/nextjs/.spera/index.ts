@@ -8,7 +8,11 @@ export const functions = {
 };
 
 export const spera = new Spera({
-  url: `${getBaseUrl()}/api/queues`,
+  url: `${getBaseUrl()}/api/spera`,
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
+
+spera.send('app/account.created', {
+  id: '100'
+})

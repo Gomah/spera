@@ -31,7 +31,7 @@ async function jobHandler(
 
 export function withSpera(
   handler: NextApiHandler,
-  client: Spera<Record<string, Function>, any>,
+  client: Spera<Record<string, any>, any>,
   verifySignature: (params: any) => NextApiHandler<any>
 ) {
   return async function nextApiHandler(req: NextApiRequest, res: NextApiResponse) {

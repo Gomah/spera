@@ -1,5 +1,5 @@
 export interface SperaParams<FnType, FnProvider> {
-  /** API Endpoint url, e.g: /api/queue */
+  /** API Endpoint url, e.g: /api/spera */
   url: string;
 
   /** In dev environment, Spera skips the provider client and will run your background functions locally at the given url
@@ -21,10 +21,10 @@ export interface ProviderPublishParams<T> {
   options?: T;
 }
 
-export class Spera<FnType, FnProvider> {
+export class Spera<FnType extends Record<string, any>, FnProvider extends { publish: (args: ProviderPublishParams<any>) => any}> {
   private provider: FnProvider;
 
-  private url: string;
+  private url: string
 
   public isDev: boolean;
 
@@ -42,11 +42,9 @@ export class Spera<FnType, FnProvider> {
     this.functions = functions;
   }
 
-  async send<T extends keyof typeof this.functions>(
+  async send<T extends keyof FnType>(
     event: T,
-    // @ts-expect-error
     payload: Parameters<FnType[T]>[0],
-    // @ts-expect-error
     options?: Parameters<FnProvider['publish']>[0]['options']
   ) {
     if (this.isDev) {
@@ -56,7 +54,6 @@ export class Spera<FnType, FnProvider> {
       });
     }
 
-    // @ts-expect-error
     return this.provider.publish({
       url: this.url,
       event: event as any,
