@@ -12,7 +12,3 @@ export const spera = new Spera({
   functions,
   provider: qStashProvider({ token: process.env.QSTASH_TOKEN as string }),
 });
-
-spera.send('app/account.created', {
-  id: '100'
-})

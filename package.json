@@ -16,15 +16,15 @@
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.1"
+    "@changesets/cli": "2.26.2"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "prettier": "2.8.7",
-    "turbo": "1.9.3"
+    "prettier": "2.8.8",
+    "turbo": "1.10.6"
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.6.0"
 }
