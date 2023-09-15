@@ -1,5 +1,11 @@
 # @spera/nextjs
 
+## 0.4.0
+
+### Minor Changes
+
+- [`fcc776e`](https://github.com/Gomah/spera/commit/fcc776e947b92aba4f770d70cb145214ff38b2c3) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash SDK to use /v2 endpoints
+
 ## 0.3.4
 
 ### Patch Changes
