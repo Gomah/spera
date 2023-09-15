@@ -19,8 +19,13 @@ export default function speraQtashPlugin({ token }: SperaQStashParams) {
     }: ProviderPublishParams<Omit<PublishJsonRequest, 'body'>>) =>
       client.publishJSON({
         url,
-        body: { event, payload },
-        ...options,
+
+        body: {
+          event,
+          payload,
+        },
+
+        ...(options as any),
       }),
   };
 }

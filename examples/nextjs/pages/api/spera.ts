@@ -12,7 +12,7 @@ export const config = {
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // This should be displayed after the background function is processed :)
   console.log('Hey there!');
-  return res.status(200).end();
+  return res.status(200).json({ success: true });
 }
 
 export default withSpera(handler, spera, verifySignature);

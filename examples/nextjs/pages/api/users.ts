@@ -7,10 +7,7 @@ export const config = {
   },
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Send some stuff in the background
   const body = JSON.parse(req.body);
 
@@ -18,5 +15,5 @@ export default async function handler(
     id: body.id,
   });
 
-  return res.status(200).end();
+  return res.status(200).json({ success: true });
 }

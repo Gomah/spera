@@ -1,4 +1,4 @@
-export interface SperaParams<FnType, FnProvider> {
+export interface SperaParams<TFunctions, TProvider> {
   /** API Endpoint url, e.g: /api/spera */
   url: string;
 
@@ -8,10 +8,10 @@ export interface SperaParams<FnType, FnProvider> {
   isDev?: boolean;
 
   /** Your "functions" object */
-  functions: FnType;
+  functions: TFunctions;
 
   /** Provider plugin */
-  provider: FnProvider;
+  provider: TProvider;
 }
 
 export interface ProviderPublishParams<T> {
@@ -21,31 +21,34 @@ export interface ProviderPublishParams<T> {
   options?: T;
 }
 
-export class Spera<FnType extends Record<string, any>, FnProvider extends { publish: (args: ProviderPublishParams<any>) => any}> {
-  private provider: FnProvider;
+export class Spera<
+  TFunctions extends Record<string, any>,
+  TProvider extends { publish: (args: ProviderPublishParams<any>) => any },
+> {
+  private provider: TProvider;
 
-  private url: string
+  private url: string;
 
   public isDev: boolean;
 
-  public functions: FnType;
+  public functions: TFunctions;
 
   constructor({
     functions,
     provider,
     url,
     isDev = process.env['NODE_ENV'] === 'development',
-  }: SperaParams<FnType, FnProvider>) {
+  }: SperaParams<TFunctions, TProvider>) {
     this.url = url;
     this.isDev = isDev;
     this.provider = provider;
     this.functions = functions;
   }
 
-  async send<T extends keyof FnType>(
+  async send<T extends keyof TFunctions>(
     event: T,
-    payload: Parameters<FnType[T]>[0],
-    options?: Parameters<FnProvider['publish']>[0]['options']
+    payload: Parameters<TFunctions[T]>[0],
+    options?: Parameters<TProvider['publish']>[0]['options']
   ) {
     if (this.isDev) {
       return fetch(this.url, {
@@ -56,7 +59,7 @@ export class Spera<FnType extends Record<string, any>, FnProvider extends { publ
 
     return this.provider.publish({
       url: this.url,
-      event: event as any,
+      event: event as string,
       payload,
       ...options,
     });
