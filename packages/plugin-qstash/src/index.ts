@@ -1,5 +1,7 @@
-import { Client, PublishJsonRequest } from '@upstash/qstash';
+import { Client, PublishJsonRequest, Receiver } from '@upstash/qstash';
 import type { ProviderPublishParams } from '@spera/core';
+
+export { Receiver };
 
 interface SperaQStashParams {
   token: string;

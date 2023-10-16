@@ -21,7 +21,7 @@
     "@spera/core": "*",
     "@swc/core": "1.3.93",
     "@types/node": "18.18.5",
-    "next": "13.5.4",
+    "next": "13.5.5",
     "tsup": "7.2.0",
     "typescript": "5.2.2"
   }

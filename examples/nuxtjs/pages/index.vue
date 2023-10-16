@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { data } = await useFetch('/api/spera');
-
 async function createFakeUser() {
   await $fetch('/api/users', {
     method: 'post',
