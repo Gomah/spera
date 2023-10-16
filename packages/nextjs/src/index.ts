@@ -1,4 +1,5 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
+import type { NextFetchEvent, NextMiddleware, NextRequest, NextResponse } from 'next/server';
 import type { Readable } from 'stream';
 import { Spera } from '@spera/core';
 
@@ -11,30 +12,42 @@ async function buffer(readable: Readable) {
 }
 
 async function jobHandler(
-  req: NextApiRequest,
+  req: NextApiRequest & NextRequest,
   res: NextApiResponse,
   functions: Record<string, Function>
 ) {
-  // Let's get the event & payload from the request body
-  const buf = await buffer(req);
-  const rawBody = buf.toString('utf8');
-  const body = JSON.parse(rawBody);
+  let body: { event: string; payload: unknown };
 
-  const { event, payload } = body as {
-    event: keyof typeof functions;
-    payload: unknown;
-  };
+  if ('json' in req) {
+    body = await req.json();
+  } else {
+    // Let's get the event & payload from the request body
+    const buf = await buffer(req);
+    const rawBody = buf.toString('utf8');
+    body = JSON.parse(rawBody);
+  }
+
+  const { event, payload } = body;
 
   // Process handler
   await functions[event]?.(payload);
 }
 
+type VerifySignatureType = (
+  params: any
+) =>
+  | NextApiHandler<any>
+  | ((req: NextRequest, nfe: NextFetchEvent) => Promise<NextResponse<unknown>>);
+
 export function withSpera(
-  handler: NextApiHandler,
+  handler: NextApiHandler | NextMiddleware,
   client: Spera<Record<string, any>, any>,
-  verifySignature: (params: any) => NextApiHandler<any>
+  verifySignature: VerifySignatureType
 ) {
-  return async function nextApiHandler(req: NextApiRequest, res: NextApiResponse) {
+  return async function nextApiHandler(
+    req: NextApiRequest & NextRequest,
+    res: NextApiResponse & NextFetchEvent
+  ) {
     if (client.isDev) {
       await jobHandler(req, res, client.functions);
     } else {
