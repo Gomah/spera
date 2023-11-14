@@ -14,9 +14,9 @@
     "@spera/plugin-upstash": "*"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.0-beta.2",
-    "nuxt": "3.7.4",
-    "vue": "3.3.4",
+    "@nuxt/devtools": "1.0.2",
+    "nuxt": "3.8.1",
+    "vue": "3.3.8",
     "vue-router": "4.2.5"
   }
 }

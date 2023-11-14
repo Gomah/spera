@@ -1,8 +1,8 @@
 import {
   verifySignature,
   verifySignatureEdge,
-  type VerifySignaturConfig,
+  type VerifySignatureConfig,
 } from '@upstash/qstash/dist/nextjs';
 
 export { verifySignature, verifySignatureEdge };
-export type { VerifySignaturConfig };
+export type { VerifySignatureConfig };
