@@ -1,5 +1,11 @@
 # @spera/plugin-upstash
 
+## 0.5.1
+
+### Patch Changes
+
+- [`f9b123d`](https://github.com/Gomah/spera/commit/f9b123d845538cbbbd4ecacb050530e8ea76ef41) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash to 2.1.11
+
 ## 0.5.0
 
 ### Minor Changes
