@@ -1,5 +1,11 @@
 # @spera/nextjs
 
+## 0.4.1
+
+### Patch Changes
+
+- [`3568458`](https://github.com/Gomah/spera/commit/356845834308714ce87c7c532aefd935f38840bd) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash to 2.3.0
+
 ## 0.4.0
 
 ### Minor Changes
