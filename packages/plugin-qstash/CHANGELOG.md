@@ -1,5 +1,13 @@
 # @spera/plugin-upstash
 
+## 0.6.0
+
+### Minor Changes
+
+- [`3568458`](https://github.com/Gomah/spera/commit/356845834308714ce87c7c532aefd935f38840bd) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash to 2.3.0
+
+- [`6083a92`](https://github.com/Gomah/spera/commit/6083a92215dac166dbe8bf6b47f19eb481fa1c2a) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash to 2.2.0
+
 ## 0.5.1
 
 ### Patch Changes
