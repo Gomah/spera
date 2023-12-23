@@ -15,13 +15,13 @@
     "release": "turbo run build --filter=@spera/core --filter=@spera/nextjs --filter=@spera/plugin-upstash lint && changeset version && changeset publish"
   },
   "dependencies": {
-    "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.2"
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.1"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "prettier": "3.1.0",
-    "turbo": "1.10.16"
+    "prettier": "3.1.1",
+    "turbo": "1.11.2"
   },
   "engines": {
     "node": ">=16.0.0"
