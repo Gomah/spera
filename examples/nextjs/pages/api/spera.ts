@@ -1,5 +1,5 @@
 import { withSpera } from '@spera/nextjs';
-import { verifySignature } from '@spera/plugin-upstash/nextjs';
+import { verifySignature } from '@spera/plugin-qstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { spera } from '../../.spera';
 

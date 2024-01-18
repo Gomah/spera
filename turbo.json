@@ -12,6 +12,27 @@
         "QSTASH_NEXT_SIGNING_KEY"
       ]
     },
+
+    "@spera/core#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+
+    "@spera/plugin-qstash#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+
+    "@spera/nextjs#build": {
+      "dependsOn": ["^build", "@spera/plugin-qstash#build", "@spera/core#build"],
+      "outputs": ["dist/**"]
+    },
+
+    "@spera/nuxtjs#build": {
+      "dependsOn": ["^build", "@spera/plugin-qstash#build", "@spera/core#build"],
+      "outputs": ["dist/**"]
+    },
+
     "lint": {
       "outputs": []
     },

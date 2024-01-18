@@ -1,4 +1,4 @@
-# @spera/plugin-upstash
+# @spera/plugin-qstash
 
 ## 0.6.0
 

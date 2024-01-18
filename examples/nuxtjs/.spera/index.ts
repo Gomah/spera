@@ -1,5 +1,5 @@
 import { Spera } from '@spera/core';
-import qStashProvider from '@spera/plugin-upstash';
+import qStashProvider from '@spera/plugin-qstash';
 import { getBaseUrl } from '../utils';
 import * as accountCreated from './account.created';
 

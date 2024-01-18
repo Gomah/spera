@@ -1,5 +1,5 @@
 {
-  "name": "@spera/nextjs",
+  "name": "@spera/nuxtjs",
   "version": "0.4.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -21,7 +21,8 @@
     "@spera/core": "*",
     "@swc/core": "1.3.104",
     "@types/node": "20.11.5",
-    "next": "14.0.4",
+    "h3": "1.10.0",
+    "nuxt": "3.9.3",
     "tsup": "8.0.1",
     "typescript": "5.3.3"
   }

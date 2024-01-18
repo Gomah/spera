@@ -1,5 +1,5 @@
 import { withSpera } from '@spera/nextjs';
-import { verifySignatureEdge } from '@spera/plugin-upstash/nextjs';
+import { verifySignatureEdge } from '@spera/plugin-qstash/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 import { spera } from '../../.spera';
 

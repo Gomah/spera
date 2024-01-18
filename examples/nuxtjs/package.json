@@ -11,12 +11,13 @@
   },
   "dependencies": {
     "@spera/core": "*",
-    "@spera/plugin-upstash": "*"
+    "@spera/nuxtjs": "*",
+    "@spera/plugin-qstash": "*"
   },
   "devDependencies": {
-    "@nuxt/devtools": "1.0.6",
-    "nuxt": "3.8.2",
-    "vue": "3.3.13",
+    "@nuxt/devtools": "1.0.8",
+    "nuxt": "3.9.3",
+    "vue": "3.4.14",
     "vue-router": "4.2.5"
   }
 }

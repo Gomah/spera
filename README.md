@@ -19,7 +19,7 @@ const functions = {
 ```
 
 ```ts
-import qStashProvider from '@spera/plugin-upstash';
+import qStashProvider from '@spera/plugin-qstash';
 import { Spera } from '@spera/core';
 import * as accountCreated from './account.created';
 
@@ -41,7 +41,7 @@ I plan to support different providers, frameworks & improve the project – ther
 ### Install dependencies
 
 ```bash
-yarn add @spera/core @spera/nextjs @spera/plugin-upstash
+yarn add @spera/core @spera/nextjs @spera/plugin-qstash
 ```
 
 Notes:
@@ -73,7 +73,7 @@ See `apps/next/.spera` as an example.
 // .spera/index.ts
 import * as accountCreated from './account.created';
 import { Spera } from '@spera/core';
-import qStashProvider from '@spera/plugin-upstash';
+import qStashProvider from '@spera/plugin-qstash';
 
 export const functions = {
   [accountCreated.name]: accountCreated.handler,
@@ -110,7 +110,7 @@ export async function handler(payload: AccountCreatedPayload) {
 ```ts
 // pages/api/spera.ts
 import { withSpera } from '@spera/nextjs';
-import { verifySignature } from '@spera/plugin-upstash/nextjs';
+import { verifySignature } from '@spera/plugin-qstash/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { spera } from '../../.spera';
 
