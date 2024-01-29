@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["docs", "@examples/next", "eslint-config-custom", "tsconfig"]
+  "ignore": ["docs", "spera-next-example", "spera-nuxt-example", "eslint-config-custom", "tsconfig"]
 }
