@@ -1,16 +1,24 @@
 export interface SperaParams<TFunctions, TProvider> {
-  /** API Endpoint url, e.g: /api/spera */
+  /**
+   * API Endpoint url,
+   * @example /api/spera
+   */
   url: string;
 
-  /** In dev environment, Spera skips the provider client and will run your background functions locally at the given url
+  /**
+   * In dev environment, Spera skips the provider client and will run your background functions locally at the given url
    * @default process.env.NODE_ENV === 'development'
    */
   isDev?: boolean;
 
-  /** Your "functions" object */
+  /**
+   * Your "functions" object
+   */
   functions: TFunctions;
 
-  /** Provider plugin */
+  /**
+   * Provider plugin
+   */
   provider: TProvider;
 }
 
