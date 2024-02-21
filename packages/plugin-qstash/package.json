@@ -38,9 +38,9 @@
   },
   "devDependencies": {
     "@spera/core": "*",
-    "@swc/core": "1.3.107",
-    "@types/node": "20.11.10",
-    "tsup": "8.0.1",
+    "@swc/core": "1.4.2",
+    "@types/node": "20.11.19",
+    "tsup": "8.0.2",
     "typescript": "5.3.3"
   },
   "dependencies": {
