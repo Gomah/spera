@@ -1,5 +1,11 @@
 # @spera/nuxtjs
 
+## 0.5.1
+
+### Patch Changes
+
+- [`900faab`](https://github.com/Gomah/spera/commit/900faabdb4be64600bf7d57aedcc30cbd5a49ea7) Thanks [@Gomah](https://github.com/Gomah)! - bump dependencies, @upstash/qstash to 2.3.1
+
 ## 0.5.0
 
 ### Minor Changes
