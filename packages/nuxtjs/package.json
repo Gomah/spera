@@ -19,11 +19,11 @@
   },
   "devDependencies": {
     "@spera/core": "*",
-    "@swc/core": "1.4.2",
-    "@types/node": "20.11.19",
-    "h3": "1.10.2",
-    "nuxt": "3.10.2",
+    "@swc/core": "1.4.8",
+    "@types/node": "20.11.27",
+    "h3": "1.11.1",
+    "nuxt": "3.10.3",
     "tsup": "8.0.2",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   }
 }
