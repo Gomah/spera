@@ -20,9 +20,9 @@
   "devDependencies": {
     "@spera/core": "*",
     "@swc/core": "1.4.8",
-    "@types/node": "20.11.27",
+    "@types/node": "20.11.29",
     "h3": "1.11.1",
-    "nuxt": "3.10.3",
+    "nuxt": "3.11.1",
     "tsup": "8.0.2",
     "typescript": "5.4.2"
   }
