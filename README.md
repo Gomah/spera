@@ -135,6 +135,7 @@ export default withSpera(handler, spera, verifySignature);
 - [x] Abstract QStash as a "Provider" plugin.
 - [x] Next.js helpers (Spera to extract "use" hooks to verify signatures based on X provider)
 - [x] Dynamic Next.js helpers (based on provider)
+- [ ] Support batch
 - [ ] Add zod
 - [ ] Client API Design
 - [ ] Cloudflare Queues as a "Provider" plugin.
