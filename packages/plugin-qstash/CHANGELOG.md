@@ -1,5 +1,15 @@
 # @spera/plugin-qstash
 
+## 0.8.0
+
+### Minor Changes
+
+- [`bd10144`](https://github.com/Gomah/spera/commit/bd10144ab20daf0fc0e39842b46275bfc2647c81) Thanks [@Gomah](https://github.com/Gomah)! - bump @upstash/qstash to 2.4.2
+
+### Patch Changes
+
+- [`bbdb3ae`](https://github.com/Gomah/spera/commit/bbdb3aed4dcd395ab5634e3b23a8031988b59b1b) Thanks [@Gomah](https://github.com/Gomah)! - bump dependencies
+
 ## 0.7.1
 
 ### Patch Changes
