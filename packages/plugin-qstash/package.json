@@ -38,12 +38,12 @@
   },
   "devDependencies": {
     "@spera/core": "*",
-    "@swc/core": "1.4.11",
-    "@types/node": "20.11.30",
+    "@swc/core": "1.4.16",
+    "@types/node": "20.12.7",
     "tsup": "8.0.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   },
   "dependencies": {
-    "@upstash/qstash": "2.4.2"
+    "@upstash/qstash": "2.4.3"
   }
 }
