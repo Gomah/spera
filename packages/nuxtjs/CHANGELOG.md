@@ -1,5 +1,11 @@
 # @spera/nuxtjs
 
+## 0.5.2
+
+### Patch Changes
+
+- [`bbdb3ae`](https://github.com/Gomah/spera/commit/bbdb3aed4dcd395ab5634e3b23a8031988b59b1b) Thanks [@Gomah](https://github.com/Gomah)! - bump dependencies
+
 ## 0.5.1
 
 ### Patch Changes
