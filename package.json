@@ -21,10 +21,10 @@
   "devDependencies": {
     "eslint-config-custom": "*",
     "prettier": "3.2.5",
-    "turbo": "1.13.2"
+    "turbo": "1.13.3"
   },
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.2.1"
 }
