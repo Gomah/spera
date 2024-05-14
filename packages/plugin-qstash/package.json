@@ -39,7 +39,7 @@
   "devDependencies": {
     "@spera/core": "*",
     "@swc/core": "1.5.5",
-    "@types/node": "20.12.10",
+    "@types/node": "20.12.11",
     "tsup": "8.0.2",
     "typescript": "5.4.5"
   },
