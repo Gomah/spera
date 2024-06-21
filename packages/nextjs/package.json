@@ -19,10 +19,10 @@
   },
   "devDependencies": {
     "@spera/core": "*",
-    "@swc/core": "1.5.7",
-    "@types/node": "20.12.13",
-    "next": "14.2.3",
-    "tsup": "8.0.2",
-    "typescript": "5.4.5"
+    "@swc/core": "1.6.3",
+    "@types/node": "20.14.7",
+    "next": "14.2.4",
+    "tsup": "8.1.0",
+    "typescript": "5.5.2"
   }
 }
