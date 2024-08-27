@@ -1,5 +1,11 @@
 # @spera/nuxtjs
 
+## 0.6.0
+
+### Minor Changes
+
+- [`26e2edd`](https://github.com/Gomah/spera/commit/26e2edd02e0a0a1ba9ca0406407a442c6ca59f0f) Thanks [@Gomah](https://github.com/Gomah)! - bump deps, @upstash/qstash to 2.6.5
+
 ## 0.5.2
 
 ### Patch Changes
