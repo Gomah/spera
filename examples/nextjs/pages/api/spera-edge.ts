@@ -10,7 +10,7 @@ export const config = {
 async function handler(req: NextRequest) {
   // This should be displayed after the background function is processed :)
   console.log('Hey there!');
-  return NextResponse.json({ success: true });
+  return Response.json({ success: true });
 }
 
 export default withSpera(handler, spera, verifySignatureEdge);

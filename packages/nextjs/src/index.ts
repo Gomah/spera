@@ -1,5 +1,5 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
-import type { NextFetchEvent, NextMiddleware, NextRequest, NextResponse } from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 import type { Readable } from 'stream';
 import { Spera } from '@spera/core';
 
@@ -37,10 +37,10 @@ type VerifySignatureType = (
   params: any
 ) =>
   | NextApiHandler<any>
-  | ((req: NextRequest, nfe: NextFetchEvent) => Promise<NextResponse<unknown>>);
+  | ((request: NextRequest, nfe: NextFetchEvent) => Promise<Response>)
 
 export function withSpera(
-  handler: NextApiHandler | NextMiddleware,
+  handler: NextApiHandler | ((request: NextRequest, nfe?: NextFetchEvent) => Response | Promise<Response>),
   client: Spera<Record<string, any>, any>,
   verifySignature: VerifySignatureType
 ) {

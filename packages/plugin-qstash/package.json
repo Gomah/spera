@@ -10,14 +10,14 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./nextjs": {
+      "types": "./dist/nextjs.d.ts",
       "import": "./dist/nextjs.mjs",
-      "require": "./dist/nextjs.js",
-      "types": "./dist/nextjs.d.ts"
+      "require": "./dist/nextjs.js"
     }
   },
   "typesVersions": {
@@ -38,12 +38,12 @@
   },
   "devDependencies": {
     "@spera/core": "*",
-    "@swc/core": "1.7.18",
-    "@types/node": "20.16.1",
-    "tsup": "8.2.4",
-    "typescript": "5.5.4"
+    "@swc/core": "1.9.2",
+    "@types/node": "22.9.1",
+    "tsup": "8.3.5",
+    "typescript": "5.6.3"
   },
   "dependencies": {
-    "@upstash/qstash": "2.6.5"
+    "@upstash/qstash": "2.7.16"
   }
 }
