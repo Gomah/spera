@@ -1,5 +1,11 @@
 # @spera/nextjs
 
+## 0.7.0
+
+### Minor Changes
+
+- [`96b8849`](https://github.com/Gomah/spera/commit/96b8849f4c2dc46b1c5b838c8e8a54b74842b697) Thanks [@Gomah](https://github.com/Gomah)! - node 22, support for next 15, bump @upstash/qstash to 2.7.16
+
 ## 0.6.0
 
 ### Minor Changes
